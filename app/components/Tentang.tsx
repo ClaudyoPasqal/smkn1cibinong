@@ -2,6 +2,29 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+const DATA = [
+  {
+    image: "/images/devino.jpeg",
+    name: "Devino Rizky",
+    role: "3D Modelling",
+  },
+  {
+    image: "/images/pawas.jpeg",
+    name: "Fawwaz Zakhwan",
+    role: "3D Modelling",
+  },
+  {
+    image: "/images/fadlan.jpeg",
+    name: "Fadlan Ahmad",
+    role: "Landscaping",
+  },
+  {
+    image: "/images/claudyo.jpeg",
+    name: "Claudyo",
+    role: "Website Developer",
+  },
+];
+
 const Tentang = () => {
   useEffect(() => {
     AOS.init({
@@ -29,66 +52,24 @@ const Tentang = () => {
       </p>
       <h1 className="font-bold text-2xl">Team</h1>
       <div className="flex flex-row flex-wrap gap-4 justify-center ">
-        <div
-          data-aos="fade-up"
-          data-aos-delay="0"
-          className="flex flex-col gap-2 items-center"
-        >
-          <div className="w-[200px] h-[200px] overflow-hidden cursor-pointer rounded-lg">
-            <img
-              src="/images/6.jpg"
-              alt="Gedung"
-              className="h-full w-full object-cover rounded-lg transition-transform duration-300 hover:scale-125"
-            />
+        {DATA.map((item, i) => (
+          <div
+            data-aos="fade-up"
+            data-aos-delay="0"
+            className="flex flex-col gap-2 items-center"
+            key={i}
+          >
+            <div className="w-[200px] h-[200px] overflow-hidden cursor-pointer rounded-lg">
+              <img
+                src={item.image}
+                alt={item.name}
+                className="h-full w-full object-cover rounded-lg transition-transform duration-300 hover:scale-125"
+              />
+            </div>
+            <h1 className="font-semibold text-lg">{item.name}</h1>
+            <p className="text-xs">{item.role}</p>
           </div>
-          <h1 className="font-semibold text-lg">Claudyo Pasqal</h1>
-          <p className="text-xs">Website Developer</p>
-        </div>
-        <div
-          data-aos="fade-up"
-          data-aos-delay="100"
-          className="flex flex-col gap-2 items-center"
-        >
-          <div className="w-[200px] h-[200px] overflow-hidden cursor-pointer rounded-lg">
-            <img
-              src="/images/6.jpg"
-              alt="Gedung"
-              className="h-full w-full object-cover rounded-lg transition-transform duration-300 hover:scale-125"
-            />
-          </div>
-          <h1 className="font-semibold text-lg">Devino Rizky</h1>
-          <p className="text-xs">3D Modelling</p>
-        </div>
-        <div
-          data-aos="fade-up"
-          data-aos-delay="300"
-          className="flex flex-col gap-2 items-center"
-        >
-          <div className="w-[200px] h-[200px] overflow-hidden cursor-pointer rounded-lg">
-            <img
-              src="/images/6.jpg"
-              alt="Gedung"
-              className="h-full w-full object-cover rounded-lg transition-transform duration-300 hover:scale-125"
-            />
-          </div>
-          <h1 className="font-semibold text-lg">Fawaz Zakhwan</h1>
-          <p className="text-xs">3D Modelling</p>
-        </div>
-        <div
-          data-aos="fade-up"
-          data-aos-delay="400"
-          className="flex flex-col gap-2 items-center"
-        >
-          <div className="w-[200px] h-[200px] overflow-hidden cursor-pointer rounded-lg">
-            <img
-              src="/images/6.jpg"
-              alt="Gedung"
-              className="h-full w-full object-cover rounded-lg transition-transform duration-300 hover:scale-125"
-            />
-          </div>
-          <h1 className="font-semibold text-lg">Fadlan Ahmad</h1>
-          <p className="text-xs">Landscaping</p>
-        </div>
+        ))}
       </div>
     </div>
   );
