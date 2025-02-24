@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <div className="w-full h-screen relative" id="beranda">
       <video
-        src="/videos/cinematic.mp4"
+        src="/videos/cinematic_2.mp4"
         autoPlay
         muted
         loop
